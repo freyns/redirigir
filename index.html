@@ -3,24 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redireccionar Enlace</title>
+    <title>Procesador de Enlace</title>
     <script>
-        // Redirigir automáticamente al enlace funcional
-        document.addEventListener('DOMContentLoaded', () => {
-            // Enlace original que deseas procesar
-            const enlaceOriginal = "http://animeflv.net/"; // Cambia por tu enlace original
+        // Función para procesar y redirigir al enlace funcional
+        function redirigirEnlace() {
+            // Obtener el enlace introducido por el usuario
+            const enlaceOriginal = document.getElementById('enlaceOriginal').value;
 
-            // Crear un enlace funcional a partir del original
-            const enlaceFuncional = `https://freyns.github.io/redirigir/procesado?original=${encodeURIComponent(enlaceOriginal)}`;
+            if (!enlaceOriginal) {
+                alert('Por favor, introduce un enlace válido.');
+                return;
+            }
 
-            // Mostrarlo o redirigir automáticamente
+            // Crear el enlace funcional utilizando tu servidor
+            const enlaceFuncional = `https://freyns.github.io/redirigir/?original=${encodeURIComponent(enlaceOriginal)}`;
+            
+            // Mostrar el enlace funcional en la consola (para depuración)
             console.log(`Redirigiendo a: ${enlaceFuncional}`);
-            window.location.href = enlaceFuncional; // Redirige automáticamente
-        });
+            
+            // Redirigir al enlace funcional
+            window.location.href = enlaceFuncional;
+        }
     </script>
 </head>
 <body>
-    <h1>Redirigiendo...</h1>
-    <p>Espere mientras es redirigido.</p>
+    <h1>Procesador de Enlace</h1>
+    <p>Introduce un enlace y haz clic en el botón para redirigirte a un enlace funcional:</p>
+    
+    <!-- Formulario para ingresar el enlace -->
+    <form onsubmit="event.preventDefault(); redirigirEnlace();">
+        <label for="enlaceOriginal">Enlace original:</label>
+        <input type="url" id="enlaceOriginal" placeholder="https://paginaoriginal.com" required>
+        <button type="submit">Redirigir</button>
+    </form>
 </body>
 </html>
