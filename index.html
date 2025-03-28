@@ -3,38 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Procesador de Enlace</title>
+    <title>Visualizar Página Web</title>
     <script>
-        // Función para procesar y redirigir al enlace funcional
-        function redirigirEnlace() {
-            // Obtener el enlace introducido por el usuario
-            const enlaceOriginal = document.getElementById('enlaceOriginal').value;
+        // URL del sitio que se desea redirigir a través del sistema
+        const sitioOriginal = "https://animeflv.net";
+        const servidorIntermedio = "https://freyns.github.io/redirigir/"; // Tu servidor
 
-            if (!enlaceOriginal) {
-                alert('Por favor, introduce un enlace válido.');
-                return;
-            }
+        // Crear un enlace que use la estructura de Google Translate
+        const enlaceFuncional = `${servidorIntermedio}?_x_tr_sl=auto&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=wapp&original=${encodeURIComponent(sitioOriginal)}`;
 
-            // Crear el enlace funcional utilizando tu servidor
-            const enlaceFuncional = `https://freyns.github.io/redirigir/?original=${encodeURIComponent(enlaceOriginal)}`;
-            
-            // Mostrar el enlace funcional en la consola (para depuración)
-            console.log(`Redirigiendo a: ${enlaceFuncional}`);
-            
-            // Redirigir al enlace funcional
+        // Función para redirigir al nuevo enlace funcional
+        function redirigir() {
             window.location.href = enlaceFuncional;
         }
     </script>
 </head>
 <body>
-    <h1>Procesador de Enlace</h1>
-    <p>Introduce un enlace y haz clic en el botón para redirigirte a un enlace funcional:</p>
-    
-    <!-- Formulario para ingresar el enlace -->
-    <form onsubmit="event.preventDefault(); redirigirEnlace();">
-        <label for="enlaceOriginal">Enlace original:</label>
-        <input type="url" id="enlaceOriginal" placeholder="https://paginaoriginal.com" required>
-        <button type="submit">Redirigir</button>
-    </form>
+    <h1>Visualizar Página Web Modificada</h1>
+    <p>Haz clic en el botón de abajo para abrir el sitio web a través del sistema de redirección:</p>
+    <button onclick="redirigir()">Abrir Página</button>
 </body>
 </html>
