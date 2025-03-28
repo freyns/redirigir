@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redireccionar Enlace</title>
+    <script>
+        // Redirigir automáticamente al enlace funcional
+        document.addEventListener('DOMContentLoaded', () => {
+            // Enlace original que deseas procesar
+            const enlaceOriginal = "http://animeflv.net/"; // Cambia por tu enlace original
+
+            // Crear un enlace funcional a partir del original
+            const enlaceFuncional = `https://mi-servidor-funcional.com/procesado?original=${encodeURIComponent(enlaceOriginal)}`;
+
+            // Mostrarlo o redirigir automáticamente
+            console.log(`Redirigiendo a: ${enlaceFuncional}`);
+            window.location.href = enlaceFuncional; // Redirige automáticamente
+        });
+    </script>
+</head>
+<body>
+    <h1>Redirigiendo...</h1>
+    <p>Espere mientras es redirigido.</p>
+</body>
+</html>
